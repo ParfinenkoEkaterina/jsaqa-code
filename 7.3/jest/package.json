@@ -4,7 +4,27 @@
   "description": "jest test",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --collectCoverage"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/.vscode/**"
+    ],
+  "coverageThreshold": {
+    "global": {
+    "branches": 100,
+    "functions": 100,
+    "lines": 100
+  }
+},
+"coverageReporters": [
+  "html",
+  "text-summary"
+]
   },
   "keywords": [
     "jest",
