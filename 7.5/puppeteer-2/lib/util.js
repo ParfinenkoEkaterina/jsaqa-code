@@ -8,7 +8,6 @@ module.exports = {
     return "div:nth-child(" + row + ") > span:nth-child(" + chair + ")";
   },
 
-
     //Выбор дня недели
    selectDate: async function (page, day) { 
       await page.waitForSelector("h1");
@@ -16,22 +15,12 @@ module.exports = {
       await daysOfWeek[day].click();
     },
 
-       //Выбор выходного дня недели
-
-     // selectDateWeekend: async function (page, day) { 
-      //  await page.waitForSelector("h1");
-      //  let daysOfWeek = await page.$$("a.page-nav__day"); 
-      //  await daysOfWeek[day].click();
-     // },
-
-
     //Выбор зала 
     selectHall: async function (page, index1) { 
       let halls = await page.$$("div>ul>li"); 
       await halls[index1-1].click();
       await page.waitForSelector("p.buying__info-hall");
     },
-
 
   //Выбор случайного кресла
   getFreeRandomChair: async function (page) { 
