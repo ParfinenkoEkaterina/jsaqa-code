@@ -1,5 +1,6 @@
 const { clickElement, getText } = require("./lib/commands.js");
-const { confirmBooking, getFreeRandomChair, selectDate, selectHall } = require("./lib/util.js");
+const { confirmBooking, getFreeRandomChair, selectDate,
+   selectHall } = require("./lib/util.js");
 
 afterEach(() => {
   page.close();
@@ -13,6 +14,7 @@ let page;
 let severalChairs = 3; 
 let dayAfterToday = 2;  
 let hallNumber = 1; 
+let dayAfterAllWeek = 6; // седьмой день, доступный для бронирования
 
 describe("Tikets tests", () => {
   beforeEach(async () => {
@@ -27,6 +29,15 @@ describe("Tikets tests", () => {
     await clickElement(page, freeChair);
     let actual = await confirmBooking(page); 
     expect(actual).toContain("ticket__info-qr");
+  });
+
+  test("book for the seventh day available for booking", async () => {
+    await selectDate(page, dayAfterAllWeek);
+    await selectHall (page, hallNumber); 
+    let freeChair = await getFreeRandomChair(page);
+    await clickElement(page, freeChair);
+    let actual = await confirmBooking(page); 
+   expect(actual).toContain("ticket__info-qr");
   });
 
   test("should book several chairs'", async () => {

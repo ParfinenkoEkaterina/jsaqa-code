@@ -10,11 +10,19 @@ module.exports = {
 
 
     //Выбор дня недели
-    selectDate: async function (page, day) { 
+   selectDate: async function (page, day) { 
       await page.waitForSelector("h1");
       let daysOfWeek = await page.$$("a.page-nav__day"); 
       await daysOfWeek[day].click();
     },
+
+       //Выбор выходного дня недели
+
+     // selectDateWeekend: async function (page, day) { 
+      //  await page.waitForSelector("h1");
+      //  let daysOfWeek = await page.$$("a.page-nav__day"); 
+      //  await daysOfWeek[day].click();
+     // },
 
 
     //Выбор зала 
