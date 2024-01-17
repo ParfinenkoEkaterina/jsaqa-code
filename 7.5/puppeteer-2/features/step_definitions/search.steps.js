@@ -28,10 +28,6 @@ When ("user selects day {string}", { timeout: 60 * 1000 }, async function (strin
   await selectDate(this.page, Number(string));
 });
 
-When ("when user chooses day seventh of the week {string}", { timeout: 60 * 1000 }, async function (string) {
-  await selectDate(this.page, Number(string));
-});
-
 When ("user selects hall {string}", { timeout: 60 * 1000 }, async function (string) {
   await selectHall(this.page, Number(string));
 });

@@ -1,0 +1,2 @@
+{"cucumberautocomplete.steps": "./features/step_definitions/search.steps.js",
+"cucumberautocomplete.strictGherkinCompletion": false}
